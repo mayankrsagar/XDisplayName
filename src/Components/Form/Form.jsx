@@ -1,6 +1,6 @@
 import './Form.css';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Form = () => {
   const [formElement, setFormElement] = useState({
@@ -8,22 +8,23 @@ const Form = () => {
     lastName: "",
   });
   const [showFullName, setShowFullName] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormElement({ ...formElement, [name]: value });
+    setFormElement((prev) => ({ ...prev, [name]: value }));
     setShowFullName(false);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowFullName(true);
+  };
+
   return (
     <div className="form">
-      <h1>Full Name Display</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setShowFullName(true);
-        }}
-      >
-        <div style={{margin:'3rem'}}>
-          
+      <h1 className="form-heading">Full Name Display</h1>
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="form-group">
           <label htmlFor="firstName">First Name</label>
           <input
             type="text"
@@ -32,12 +33,12 @@ const Form = () => {
             value={formElement.firstName}
             onChange={handleChange}
             required
+            placeholder="Enter your first name"
           />
         </div>
 
-        <div style={{margin:'3rem'}}>
+        <div className="form-group">
           <label htmlFor="lastName">Last Name</label>
-
           <input
             type="text"
             name="lastName"
@@ -45,13 +46,15 @@ const Form = () => {
             value={formElement.lastName}
             onChange={handleChange}
             required
+            placeholder="Enter your last name"
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit-btn">Submit</button>
       </form>
+
       {showFullName && (
-        <h5>{`Full Name: ${formElement.firstName} ${formElement.lastName}`}</h5>
+        <p className="result">{`Full Name: ${formElement.firstName} ${formElement.lastName}`}</p>
       )}
     </div>
   );

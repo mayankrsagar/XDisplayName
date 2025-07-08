@@ -1,8 +1,76 @@
-.form{
-    display: flex;
-    flex-direction: column;
-    background-color: yellowgreen;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;    
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2e2e2e;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #555;
+}
+
+.submit-btn {
+  background-color: #2e2e2e;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1e1e1e;
+  transition: ease-in-out 0.3s background-color 0.3s ease;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #222;
+}
+.result span {
+  font-weight: bold;
+  color: #d9534f; /* Bootstrap danger color */
 }
